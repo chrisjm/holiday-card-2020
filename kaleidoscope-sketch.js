@@ -7,7 +7,9 @@ const kaleidoscope = (sketch) => {
   let saveButton;
   let slider;
   let sliderLabel;
+  let canvasDimension;
   let lineStrokeWeight = 16;
+  let welcomeScreen = true;
 
   const clearCanvas = function () {
     sketch.clear();
@@ -22,23 +24,28 @@ const kaleidoscope = (sketch) => {
     sliderLabel.elt.innerText = lineStrokeWeight;
   };
 
-  // sketch.preload = () => {};
-
-  sketch.setup = () => {
-    // Calculate canvas size - Mobile first
-    let dimension = sketch.windowWidth;
+  const setCanvasDimension = function () {
+    // Calculate max canvas dimension based on window size ratio
     if (sketch.windowWidth / sketch.windowHeight > 1) {
-      dimension = sketch.windowHeight;
+      canvasDimension = sketch.windowHeight;
+    } else {
+      canvasDimension = sketch.windowWidth;
     }
 
-    // Leave room for controls
-    dimension = dimension - 250;
+    // Leave room for controls, etc. (this is likely very naive)
+    canvasDimension = canvasDimension - 250;
+  };
+
+  sketch.preload = () => {};
+
+  sketch.setup = () => {
+    setCanvasDimension();
 
     // Create and setup canvas
-    sketch.createCanvas(dimension, dimension);
+    sketch.createCanvas(canvasDimension, canvasDimension);
     sketch.angleMode(sketch.DEGREES);
 
-    // Buttons
+    // Control Buttons
     slider = sketch.createSlider(1, 32, lineStrokeWeight, 1);
     slider.input(sliderEvent);
     sliderLabel = sketch.createDiv(lineStrokeWeight);
@@ -47,17 +54,14 @@ const kaleidoscope = (sketch) => {
     clearButton = sketch.createButton("clear");
     clearButton.mousePressed(clearCanvas);
 
-    // Instructions
-    const s =
+    // Welcome Screen
+    const instructions =
       "Click or tap to draw a snowflake kaleidoscope-style.\n" +
-      "Change sizes using the slider.";
+      "Change line size using the slider.";
     sketch.textAlign(sketch.CENTER, sketch.CENTER);
     sketch.textSize(16);
     sketch.fill(255);
-    const text = sketch.text(s, 0, 0, dimension, dimension);
-    text.mousePressed(() => {
-      clearCanvas();
-    });
+    sketch.text(instructions, 0, 0, canvasDimension, canvasDimension);
 
     // Gridlines
     // sketch.translate(sketch.width / 2, sketch.height / 2);
@@ -79,6 +83,12 @@ const kaleidoscope = (sketch) => {
       sketch.mouseY > 0 &&
       sketch.mouseY < sketch.height
     ) {
+      // Close the Welcome screen if showing
+      if (sketch.mouseIsPressed && welcomeScreen) {
+        welcomeScreen = false;
+        clearCanvas();
+      }
+
       // Reposition mouse
       let mx = sketch.mouseX - sketch.width / 2;
       let my = sketch.mouseY - sketch.height / 2;

@@ -7,10 +7,23 @@
   <script language="javascript" type="text/javascript" src="snowflake-sketch.js"></script>
   <script language="javascript" type="text/javascript" src="kaleidoscope-sketch.js"></script>
   <link rel="stylesheet" type="text/css" href="style.css">
+  <script>
+    const callback = function(){
+      // Update CSS variable to spin the range slider thumb
+      const input = document.querySelector("input[type=range]");
+      input.addEventListener("input", event => {
+        const value = Number(input.value) / 100;
+        console.log(input);
+        input.style.setProperty("--thumb-rotate", `${value * 720}deg`);
+      });
+    };
+
+    window.addEventListener("load", callback);
+  </script>
 </head>
 <body>
   <div class="content">
-    <h1>❄️ Happy Holidays! ☃️</h1>
+    <h1>❄️ Create a Snowflake ☃️</h1>
     <div class="layer">
       <div class="kaleidoscope-container">
         <div id="kaleidoscope-sketch"></div>

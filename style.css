@@ -1,3 +1,7 @@
+:root {
+  --thumb-rotate: 10deg;
+}
+
 html,
 body {
   margin: 0;
@@ -54,12 +58,13 @@ h1 {
   font-size: 1rem;
   width: 1.5rem;
   height: 1.5rem;
-  border: 0.4rem solid #2968bb;
+  border: 0.3rem solid #2968bb;
   border-radius: 1.5rem;
   background-color: white;
   color: #2968bb;
-  line-height: 1.4rem;
+  line-height: 1.5rem;
   font-weight: bold;
+  margin-right: 1rem;
 }
 
 .credits {
@@ -95,16 +100,16 @@ input[type="range"]::-moz-range-thumb {
   background-color: white;
   border-color: #2968bb;
   border-radius: 16px;
-  /* background-image: url("https://storage.googleapis.com/pw-stuff/thumbs-sprite.png"); */
+  background-image: url("graphics/snowflake.png");
   /* border-color: rgba(0, 120, 255, 0.7); */
   background-position: 0 0;
   background-size: cover;
-  transform: scale(1.9) rotateZ(var(--thumb-rotate, 10deg));
+  transform: scale(1.9) rotateZ(var(--thumb-rotate));
   cursor: pointer;
 }
 input[type="range"]::-moz-range-thumb:active {
   background-position: 100% 0px;
-  transform: scale(2) rotateZ(var(--thumb-rotate, 10deg));
+  transform: scale(2) rotateZ(var(--thumb-rotate));
 }
 input[type="range"]::-moz-range-track {
   width: 100%;
@@ -122,24 +127,22 @@ input[type="range"]::-moz-range-progress {
 }
 input[type="range"]::-webkit-slider-thumb {
   border: none;
-  height: 16px;
-  width: 16px;
+  height: 20px;
+  width: 20px;
   background-color: white;
-  border-color: #2968bb;
-  border-radius: 16px;
-  /* background-image: url("https://storage.googleapis.com/pw-stuff/thumbs-sprite.png"); */
+  border: 3px solid #2968bb;
+  border-radius: 20px;
+  background-image: url("graphics/snowflake.png");
   background-position: 0 0;
   background-size: cover;
-  /* transform: scale(1.9) rotateZ(var(--thumb-rotate, 10deg)); */
-  transform: scale(1.9);
+  transform: scale(1.9) rotateZ(var(--thumb-rotate));
   cursor: pointer;
   /* margin-top: -15px; */
   -webkit-appearance: none;
 }
 input[type="range"]::-webkit-slider-thumb:active {
   background-position: 100% 0px;
-  /* transform: scale(2) rotateZ(var(--thumb-rotate, 10deg)); */
-  transform: scale(2);
+  transform: scale(2) rotateZ(var(--thumb-rotate));
 }
 input[type="range"]::-webkit-slider-runnable-track {
   margin-top: 0.5rem;
