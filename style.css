@@ -3,25 +3,165 @@ body {
   margin: 0;
   padding: 0;
   background-color: black;
+  color: white;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
+
+a {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+a:hover {
+  color: white;
+}
+
 canvas {
   display: block;
 }
 
-.container {
+h1 {
+  font-family: sans-serif;
+  font-size: 3rem;
+  text-align: center;
+}
+
+#snowflakes-sketch {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+
+.kaleidoscope-container {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-#kaleidoscope-sketch {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
 #kaleidoscope-sketch canvas {
   border: 10px solid rgba(255, 255, 255, 0.25);
   border-radius: 10px;
+}
+
+#kaleidoscope-sketch div {
+  display: inline-block;
+  font-size: 1rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  border: 0.4rem solid #2968bb;
+  border-radius: 1.5rem;
+  background-color: white;
+  color: #2968bb;
+  line-height: 1.4rem;
+  font-weight: bold;
+}
+
+.credits {
+  font-size: 0.8rem;
+}
+
+.credits > span {
+  display: block;
+}
+
+/* Slider */
+/* Inspiration: https://codepen.io/pwambach/pen/MWWNaJO */
+
+input[type="range"] {
+  -webkit-appearance: none;
+  background: transparent;
+  width: 50%;
+  outline: none;
+}
+
+input[type="range"]:focus,
+input[type="range"]:active,
+input[type="range"]::-moz-focus-inner,
+input[type="range"]::-moz-focus-outer {
+  border: 0;
+  outline: none;
+}
+
+input[type="range"]::-moz-range-thumb {
+  border: none;
+  height: 16px;
+  width: 16px;
+  background-color: white;
+  border-color: #2968bb;
+  border-radius: 16px;
+  /* background-image: url("https://storage.googleapis.com/pw-stuff/thumbs-sprite.png"); */
+  /* border-color: rgba(0, 120, 255, 0.7); */
+  background-position: 0 0;
+  background-size: cover;
+  transform: scale(1.9) rotateZ(var(--thumb-rotate, 10deg));
+  cursor: pointer;
+}
+input[type="range"]::-moz-range-thumb:active {
+  background-position: 100% 0px;
+  transform: scale(2) rotateZ(var(--thumb-rotate, 10deg));
+}
+input[type="range"]::-moz-range-track {
+  width: 100%;
+  height: 20px;
+  background: #eee;
+  border-radius: 10px;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+}
+input[type="range"]::-moz-range-progress {
+  height: 20px;
+  background: #4685d7;
+  border-radius: 10px;
+  cursor: pointer;
+}
+input[type="range"]::-webkit-slider-thumb {
+  border: none;
+  height: 16px;
+  width: 16px;
+  background-color: white;
+  border-color: #2968bb;
+  border-radius: 16px;
+  /* background-image: url("https://storage.googleapis.com/pw-stuff/thumbs-sprite.png"); */
+  background-position: 0 0;
+  background-size: cover;
+  /* transform: scale(1.9) rotateZ(var(--thumb-rotate, 10deg)); */
+  transform: scale(1.9);
+  cursor: pointer;
+  /* margin-top: -15px; */
+  -webkit-appearance: none;
+}
+input[type="range"]::-webkit-slider-thumb:active {
+  background-position: 100% 0px;
+  /* transform: scale(2) rotateZ(var(--thumb-rotate, 10deg)); */
+  transform: scale(2);
+}
+input[type="range"]::-webkit-slider-runnable-track {
+  margin-top: 0.5rem;
+  width: 100%;
+  height: 20px;
+  background: #2968bb;
+  border-radius: 10px;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+  -webkit-appearance: none;
+}
+label {
+  background: #eee;
+  border-radius: 50%;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+  padding: 14px;
+  margin-left: 10px;
+  font-family: Roboto, "Helvetica Neue", Arial;
+  font-size: 20px;
+  width: 25px;
+  text-align: center;
+  color: #2968bb;
+  font-weight: bold;
+  content: "";
 }

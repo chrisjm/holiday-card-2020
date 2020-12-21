@@ -12,7 +12,7 @@ const snowflake = (sketch) => {
 
   function getRandomSize() {
     let r = sketch.pow(sketch.random(0, 1), 3);
-    return sketch.constrain(r * 32, 2, 32);
+    return sketch.constrain(r * 32, 5, 32);
 
     // let r = randomGaussian() * 2.5;
     // return constrain(abs(r * r), 2, 36);
@@ -152,4 +152,4 @@ const snowflake = (sketch) => {
 };
 
 // eslint-disable-next-line no-unused-vars
-const snowflakep5 = new p5(snowflake, "p5sketch");
+const snowflakep5 = new p5(snowflake, "snowflakes-sketch");

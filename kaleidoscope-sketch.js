@@ -6,7 +6,8 @@ const kaleidoscope = (sketch) => {
   let clearButton;
   let saveButton;
   let slider;
-  let lineStrokeWeight = 4;
+  let sliderLabel;
+  let lineStrokeWeight = 16;
 
   const clearCanvas = function () {
     sketch.clear();
@@ -14,6 +15,11 @@ const kaleidoscope = (sketch) => {
 
   const saveCanvas = function () {
     sketch.saveCanvas("snowflake.png");
+  };
+
+  const sliderEvent = function () {
+    lineStrokeWeight = slider.value();
+    sliderLabel.elt.innerText = lineStrokeWeight;
   };
 
   // sketch.preload = () => {};
@@ -26,18 +32,32 @@ const kaleidoscope = (sketch) => {
     }
 
     // Leave room for controls
-    dimension = dimension - 100;
+    dimension = dimension - 250;
 
     // Create and setup canvas
     sketch.createCanvas(dimension, dimension);
     sketch.angleMode(sketch.DEGREES);
 
     // Buttons
+    slider = sketch.createSlider(1, 32, lineStrokeWeight, 1);
+    slider.input(sliderEvent);
+    sliderLabel = sketch.createDiv(lineStrokeWeight);
     saveButton = sketch.createButton("save");
     saveButton.mousePressed(saveCanvas);
     clearButton = sketch.createButton("clear");
     clearButton.mousePressed(clearCanvas);
-    slider = sketch.createSlider(1, 32, lineStrokeWeight, 1);
+
+    // Instructions
+    const s =
+      "Click or tap to draw a snowflake kaleidoscope-style.\n" +
+      "Change sizes using the slider.";
+    sketch.textAlign(sketch.CENTER, sketch.CENTER);
+    sketch.textSize(16);
+    sketch.fill(255);
+    const text = sketch.text(s, 0, 0, dimension, dimension);
+    text.mousePressed(() => {
+      clearCanvas();
+    });
 
     // Gridlines
     // sketch.translate(sketch.width / 2, sketch.height / 2);
