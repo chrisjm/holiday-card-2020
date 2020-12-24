@@ -1,6 +1,15 @@
 <!doctype html>
 <html>
 <head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CR8Q2XDCPN"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-CR8Q2XDCPN');
+  </script>
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -16,7 +25,7 @@
   <script language="javascript" type="text/javascript" src="kaleidoscope-sketch.js"></script>
   <link rel="stylesheet" type="text/css" href="style.css">
   <script>
-    const callback = function(){
+      const callback = function(){
       // Update CSS variable to spin the range slider thumb
       const input = document.querySelector("input[type=range]");
       input.addEventListener("input", event => {
