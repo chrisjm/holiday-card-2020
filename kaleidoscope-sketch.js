@@ -8,7 +8,7 @@ const kaleidoscope = (sketch) => {
   let slider;
   let sliderLabel;
   let canvasDimension;
-  let lineStrokeWeight = 16;
+  let lineStrokeWeight = 8;
   let welcomeScreen = true;
 
   const clearCanvas = function () {
