@@ -21,7 +21,6 @@
       const input = document.querySelector("input[type=range]");
       input.addEventListener("input", event => {
         const value = Number(input.value) / 100;
-        console.log(input);
         input.style.setProperty("--thumb-rotate", `${value * 720}deg`);
       });
     };

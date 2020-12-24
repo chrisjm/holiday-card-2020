@@ -28,12 +28,13 @@ const kaleidoscope = (sketch) => {
     // Calculate max canvas dimension based on window size ratio
     if (sketch.windowWidth / sketch.windowHeight > 1) {
       canvasDimension = sketch.windowHeight;
+      // Leave room for controls below
+      canvasDimension = canvasDimension - 250;
     } else {
       canvasDimension = sketch.windowWidth;
+      // Allow for x-axis space
+      canvasDimension = canvasDimension - 50;
     }
-
-    // Leave room for controls, etc. (this is likely very naive)
-    canvasDimension = canvasDimension - 250;
   };
 
   sketch.preload = () => {};
