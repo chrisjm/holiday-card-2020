@@ -1,56 +1,95 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-<head>
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CR8Q2XDCPN"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-CR8Q2XDCPN');
-  </script>
+  <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CR8Q2XDCPN"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-CR8Q2XDCPN");
+    </script>
 
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <meta property="og:title" content="Happy Snowflake Maker">
-  <meta property="og:site_name" content="Happy Snowflake Maker">
-  <meta property="og:url" content="http://happy-snowflake-maker.chrisjmears.com/">
-  <meta property="og:description" content="">
-  <meta property="og:type" content="website">
-  <meta property="og:image" content="http://happy-snowflake-maker.chrisjmears.com/graphics/social-teaser.jpg">
+    <meta property="og:title" content="Happy Snowflake Maker" />
+    <meta property="og:site_name" content="Happy Snowflake Maker" />
+    <meta
+      property="og:url"
+      content="http://happy-snowflake-maker.chrisjmears.com/"
+    />
+    <meta property="og:description" content="" />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:image"
+      content="http://happy-snowflake-maker.chrisjmears.com/graphics/social-teaser.jpg"
+    />
 
-  <script src="https://cdn.jsdelivr.net/npm/p5@1.1.9/lib/p5.js"></script>
-  <script language="javascript" type="text/javascript" src="snowflake-sketch.js"></script>
-  <script language="javascript" type="text/javascript" src="kaleidoscope-sketch.js"></script>
-  <link rel="stylesheet" type="text/css" href="style.css">
-  <script>
-      const callback = function(){
-      // Update CSS variable to spin the range slider thumb
-      const input = document.querySelector("input[type=range]");
-      input.addEventListener("input", event => {
-        const value = Number(input.value) / 100;
-        input.style.setProperty("--thumb-rotate", `${value * 720}deg`);
-      });
-    };
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.5.0/p5.min.js"
+      integrity="sha512-WJXVjqeINVpi5XXJ2jn0BSCfp0y80IKrYh731gLRnkAS9TKc5KNt/OfLtu+fCueqdWniouJ1ubM+VI/hbo7POQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      language="javascript"
+      type="text/javascript"
+      src="snowflake-sketch.js"
+    ></script>
+    <script
+      language="javascript"
+      type="text/javascript"
+      src="kaleidoscope-sketch.js"
+    ></script>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <script>
+      const callback = function () {
+        // Update CSS variable to spin the range slider thumb
+        const input = document.querySelector("input[type=range]");
+        input.addEventListener("input", (event) => {
+          const value = Number(input.value) / 100;
+          input.style.setProperty("--thumb-rotate", `${value * 720}deg`);
+        });
+      };
 
-    window.addEventListener("load", callback);
-  </script>
-</head>
-<body>
-  <div class="content">
-    <h1>Happy Snowflake Maker ❄️</h1>
-    <div class="layer">
-      <div class="kaleidoscope-container">
-        <div id="kaleidoscope-sketch"></div>
+      window.addEventListener("load", callback);
+    </script>
+  </head>
+  <body>
+    <div class="content">
+      <h1>Happy Snowflake Maker ❄️</h1>
+      <div class="layer">
+        <div class="kaleidoscope-container">
+          <div id="kaleidoscope-sketch"></div>
+        </div>
+      </div>
+      <div class="credits">
+        <span class="author"
+          ><span class="name">Chris J Mears</span> (<a
+            href="https://www.chrisjmears.com"
+            >website</a
+          >, <a href="https://github.com/chrisjm/">github</a>,
+          <a href="https://twitter.com/chrisjm/">twitter</a>)</span
+        >
+        <span class="uses"
+          >Uses <a href="https://p5js.org/">p5.js</a>,
+          <a href="https://www.snowpack.dev/">snowpack</a>,
+          <a href="https://www.netlify.com/">Netlify</a></span
+        >
+        <span class="inspired"
+          >Inspired by and code taken from the holiday-themed
+          <a href="https://thecodingtrain.com/CodingChallenges/"
+            >Coding Train Challenges</a
+          ></span
+        >
       </div>
     </div>
-    <div class="credits">
-      <span class="author"><span class="name">Chris J Mears</span> (<a href="https://www.chrisjmears.com">website</a>, <a href="https://github.com/chrisjm/">github</a>, <a href="https://twitter.com/chrisjm/">twitter</a>)</span>
-      <span class="uses">Uses <a href="https://p5js.org/">p5.js</a>, <a href="https://www.snowpack.dev/">snowpack</a>, <a href="https://www.netlify.com/">Netlify</a></span>
-      <span class="inspired">Inspired by and code taken from the holiday-themed <a href="https://thecodingtrain.com/CodingChallenges/">Coding Train Challenges</a></span>
-    </div>
-  </div>
-  <div id="snowflakes-sketch"></div>
-</body>
+    <div id="snowflakes-sketch"></div>
+  </body>
 </html>
